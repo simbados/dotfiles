@@ -2,8 +2,6 @@ require("lazy").setup({
     {
         "stevearc/oil.nvim",
         opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("oil").setup({})
         end,
@@ -33,9 +31,6 @@ require("lazy").setup({
     {
         "nvim-tree/nvim-tree.lua",
         lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
         config = function()
             require("nvim-tree").setup({})
         end,
@@ -48,6 +43,10 @@ require("lazy").setup({
     },
     {
         "tpope/vim-surround",
+    },
+    {
+        "tpope/vim-fugitive",
+        commit = "8c8cdf4405cb8bdb70dd9812a33bb52363a87dbc",
     },
     {
         "williamboman/mason.nvim",
@@ -87,6 +86,9 @@ require("lazy").setup({
             lspconfig.html.setup({ capabilities = capabilities })
             lspconfig.jsonls.setup({ capabilities = capabilities })
             lspconfig.marksman.setup({ capabilities = capabilities })
+            lspconfig.bashls.setup({ capabilities = capabilities })
+            lspconfig.astro.setup({ capabilities = capabilities })
+            lspconfig.tailwindcss.setup({ capabilities = capabilities })
         end,
     },
     {
@@ -228,6 +230,37 @@ require("lazy").setup({
             vim.o.timeoutlen = 300
         end,
         opts = {},
+    },
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*", -- recommended, use latest release instead of latest commit
+        lazy = true,
+        ft = "markdown",
+        -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+        -- event = {
+        --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+        --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+        --   "BufReadPre path/to/my-vault/**.md",
+        --   "BufNewFile path/to/my-vault/**.md",
+        -- },
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+            -- see below for full list of optional dependencies 👇
+        },
+        opts = {
+            workspaces = {
+                {
+                    name = "personal",
+                    path = "~/vault/personal",
+                },
+                {
+                    name = "work",
+                    path = "~/vault/work",
+                },
+            },
+        },
     },
 }, {
     defaults = { version = "*" },

@@ -1,3 +1,5 @@
-brew
-oldNvim
-zsh
+.config/brew
+.config/oldNvim
+.config/zsh
+.zshrc
+install.sh
