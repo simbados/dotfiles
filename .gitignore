@@ -1,5 +1,7 @@
-.config/brew
-.config/oldNvim
-.config/zsh
-.zshrc
-install.sh
+/*
+
+!nvim/
+!tmux/
+!local/
+!.gitignore
+

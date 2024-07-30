@@ -21,5 +21,6 @@ require("core.plugin_opts.cmp")
 require("core.plugin_opts.oil")
 require("core.plugin_opts.copilot")
 require("core.plugin_opts.obsidian")
+require("core.plugin_opts.devicons")
 
 vim.cmd([[colorscheme tokyonight-night]])
